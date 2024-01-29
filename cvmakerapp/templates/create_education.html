@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% comment %} <div class="container">
+    <form method="POST" action="{% url "educationform" %}">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <center><button type="submit" class="btn btn-success">Submit the Education Data</button></center>
+    </form>
+    
+</div> {% endcomment %}
+<form method="post">
+    {% csrf_token %}
+    
+    <!-- Render each form field manually -->
+    {{ form.non_field_errors }}
+    {{ hobbyForm.non_field_errors }}
+    
+    {{ form.institution_name.label_tag }} {{ form.institution_name }}
+    {{ form.degree_earned.label_tag }} {{ form.degree_earned }}
+    {{ form.major.label_tag }} {{ form.major }}
+    {{ form.graduation_date.label_tag }} {{ form.graduation_date }}
+    {{ form.honors_or_awards.label_tag }} {{ form.honors_or_awards }}
+
+    {{hobbyForm.hobby_name.label_tag}} {{hobbyForm.hobby_name}}
+    
+    <!-- Hide the contact_information field -->
+    <input type="hidden" name="{{ form.contact_information.name }}" value="{{ contact_information.id }}">
+    <input type="hidden" name="{{ hobbyForm.contact_information.name }}" value="{{ contact_information.id }}">
+    
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock content %}
+
+
+
+
+

@@ -1,0 +1,39 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Website{% endblock %}</title>
+    <!-- Add your CSS links or styles here -->
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'contactInformation' %}">About</a></li>
+                {% comment %} <li><a href="{% url 'educationform' %}">Education</a></li> {% endcomment %}
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Content Section -->
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+        <!-- Add additional footer content or links as needed -->
+    </footer>
+
+    <!-- Add your JavaScript links or scripts here -->
+
+</body>
+</html>
